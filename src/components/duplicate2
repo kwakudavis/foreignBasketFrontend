@@ -1,0 +1,94 @@
+import React from "react";
+import ReactDOM, { render } from "react-dom";
+
+import _ from "lodash";
+import { connect } from "react-redux";
+import { addToCart } from "../actions";
+import { removeFromCart } from "../actions";
+import { deleteFromCart } from "../actions";
+import "../index.css";
+import { calculateOrderTotal } from "../helperFunctions/calculateOrderTotal";
+
+class DisplayCartItems extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+  /** 
+  /////// Handles addition of product to cart
+
+  handleOnClickAddItem = async (product, e) => {
+    e.preventDefault();
+    addToCart(product);
+  };
+
+  handleOnClickDelete = async (product, e) => {
+    e.preventDefault();
+    deleteFromCart(product);
+  };
+
+  /////Handles removal of product from cart
+  handleOnclickRemoveItem = async (product, e) => {
+    e.preventDefault();
+    removeFromCart(product);
+  };
+
+  returnItems = (items) => {
+    if (items) {
+      return items.map((item) => {
+        return (
+          <div
+            className="modalCartItems"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: "3px"
+            }}
+          >
+            <div className="productName">{item.productName}</div>
+
+            <div
+              style={{ display: "flex", justifyContent: "right", gap: "7px" }}
+            >
+              <div className="productName">€ {item.productPrice}</div>
+              <div className="productName">QTY:{item.QTY}</div>
+              <i
+                className="trash alternate outline icon"
+                onClick={(e) => this.handleOnClickDelete(item, e)}
+              ></i>
+              <i
+                className="minus circle icon"
+                onClick={(e) => this.handleOnclickRemoveItem(item, e)}
+              ></i>
+              |
+              <i
+                className="plus circle icon"
+                onClick={(e) => this.handleOnClickAddItem(item, e)}
+              ></i>
+              {""}
+            </div>
+          </div>
+        );
+      });
+    }
+  };
+
+  */
+  render() {
+    return <div>{"hello world"}</div>;
+  }
+}
+export default DisplayCartItems;
+/** 
+export const DisplayCartItems = (props) => {
+  return (
+    <div>
+      {" "}
+      {returnItems(props.cartItems)}
+      OrderTotal: € {calculateOrderTotal(props.cartItems)}
+    </div>
+  );
+};
+*/
