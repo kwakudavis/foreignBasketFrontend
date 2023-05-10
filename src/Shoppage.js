@@ -8,6 +8,7 @@ import { fetchStoresInventory, setCartModalState } from "./actions";
 import { connect } from "react-redux";
 import { CartModal } from "./Cartmodal";
 import { showModal } from "./components/isModalActive";
+import  ScrollButton from "./components/ScrollButton";
 
 class Shoppage extends React.Component {
   store_name = " ";
@@ -246,9 +247,13 @@ class Shoppage extends React.Component {
             </label>
           </form>
         </div>
+        
         <DisplayProductResults
           productResults={this.displayProducts(this.state.searchedTerm)}
         />
+        <ScrollButton />
+        
+
       </div>
     );
   }

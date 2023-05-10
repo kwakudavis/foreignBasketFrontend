@@ -17,11 +17,13 @@
     "react-firebaseui": "5.0.2",
     "react-google-button": "0.7.2",
     "react-helmet": "6.1.0",
+    "react-hot-toast": "^2.4.1",
     "react-portal": "4.2.1",
     "react-redux": "7.2.4",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.0",
+    "react-toastify": "^9.1.2",
     "react-transition-group": "4.4.2",
     "redux-form": "8.3.7",
     "redux-thunk": "2.3.0"

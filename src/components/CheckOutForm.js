@@ -6,6 +6,9 @@ import { removeFromCart } from "../actions";
 import { deleteFromCart } from "../actions";
 import { PreferredDeliverTimeForm } from "./PreferredDeliveryTimeForm";
 import _ from "lodash";
+import toast, { Toaster } from 'react-hot-toast'
+
+
 
 class CheckOutForm extends React.Component {
   constructor(props) {
@@ -20,11 +23,16 @@ class CheckOutForm extends React.Component {
       "17:00 - 19:00"
     ];
 
+  
     var preferredTimeOptions;
 
     ////Load Weekend and Weekday Options for store based on the day of the week
     var today = new Date();
     var dayOfTheWeek = today.getDay();
+
+
+
+
 
     /////Choose delivery time options based on the day of the week
     if (dayOfTheWeek === 0 || dayOfTheWeek === 6) {
@@ -88,6 +96,11 @@ class CheckOutForm extends React.Component {
     }
   }
 
+  
+  //Define the toast used to announce confirmation of order.
+  notify = () => toast('Thank you for ordering from Foreign Basket, we will get in touch once we start picking up your order. You should receive an order confirmation email from us shortly',{duration: 10000, position: "top-center", icon: '👏' });
+
+
   submitOrder = async (e, state) => {
     e.preventDefault();
 
@@ -103,7 +116,7 @@ class CheckOutForm extends React.Component {
     var timeOfOrder = new Date();
     var hourOfOrder = timeOfOrder.getHours();
 
-    if (hourOfOrder >= 20) {
+    if (hourOfOrder >= 24) {
       alert(
         "Dear customer, sorry we are currently only accepting orders before 6pm, please come again tomorrow."
       );
@@ -120,9 +133,8 @@ class CheckOutForm extends React.Component {
 
       this.props.submitOrderForm(state);
 
-      alert(
-        "Order submmitted succesfully. Thanks for shopping with us, you will be informed once we start shopping. Kindly check your mail for order confirmation."
-      );
+      ///Trigger order confirmation toast
+      this.notify();
     }
   };
 
@@ -146,9 +158,13 @@ class CheckOutForm extends React.Component {
     }
   }
 
+  
+
   render() {
     return (
+      
       <div style={{ display: "flex", flexDirection: "column" }}>
+        <Toaster/>
         <form style={{ display: "flex", flexDirection: "column" }}>
           <label style={{ display: "flex", flexDirection: "column" }}>
             Address
