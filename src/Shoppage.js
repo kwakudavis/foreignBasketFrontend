@@ -66,9 +66,18 @@ class Shoppage extends React.Component {
     }
   }*/
 
-  componentDidMount() {}
+  componentDidMount() {
+    // Check if state is stored in local storage
+    const storedState = localStorage.getItem("shoppage-state");
+    if (storedState) {
+      this.setState(JSON.parse(storedState));
+    }
+  }
 
-  componentDidUpdate(prevProps, prevState) {}
+  componentDidUpdate() {
+    // Store state in local storage
+    localStorage.setItem("shoppage-state", JSON.stringify(this.state));
+  }
 
   handleChange(event) {
     this.setState({ searchedTerm: event.target.value });

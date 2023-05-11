@@ -26,10 +26,8 @@ class Frontpage extends React.Component {
     this.props.fetchStoresInventory();
   }
 
-  renderLoadingSign(stores) {
-    if (stores) {
-      return;
-    } else {
+  renderLoadingSign() {
+    if (!this.props.stores) {
       return (
         <div
           className="ui segment"
@@ -46,6 +44,8 @@ class Frontpage extends React.Component {
       );
     }
   }
+  
+  
 
   renderStoreList() {
     return this.props.stores.map((stores) => {
@@ -161,8 +161,8 @@ class Frontpage extends React.Component {
           </div>
 
           <div className="renderStorelist">
-            {this.renderLoadingSign(this.props.stores)}
-            {this.renderStoreList()}
+            {this.renderLoadingSign()}
+            {this.props.stores && this.renderStoreList()}
 
             <div
               style={{
