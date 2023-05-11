@@ -8,7 +8,7 @@ import { fetchStoresInventory, setCartModalState } from "./actions";
 import { connect } from "react-redux";
 import { CartModal } from "./Cartmodal";
 import { showModal } from "./components/isModalActive";
-import  ScrollButton from "./components/ScrollButton";
+import  ScrollButton  from "./components/ScrollButton";
 
 class Shoppage extends React.Component {
   store_name = " ";
@@ -66,18 +66,9 @@ class Shoppage extends React.Component {
     }
   }*/
 
-  componentDidMount() {
-    // Check if state is stored in local storage
-    const storedState = localStorage.getItem("shoppage-state");
-    if (storedState) {
-      this.setState(JSON.parse(storedState));
-    }
-  }
+  componentDidMount() {}
 
-  componentDidUpdate() {
-    // Store state in local storage
-    localStorage.setItem("shoppage-state", JSON.stringify(this.state));
-  }
+  componentDidUpdate(prevProps, prevState) {}
 
   handleChange(event) {
     this.setState({ searchedTerm: event.target.value });
@@ -256,12 +247,10 @@ class Shoppage extends React.Component {
             </label>
           </form>
         </div>
-        
         <DisplayProductResults
           productResults={this.displayProducts(this.state.searchedTerm)}
         />
         <ScrollButton />
-        
 
       </div>
     );
