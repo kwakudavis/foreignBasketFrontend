@@ -14,12 +14,12 @@ class Menu extends React.Component {
   }
 
   rendercartSize(cart) {
-    console.log("bombo");
-    console.log(cart);
+    
+   
     var total = 0;
     if (cart.length > 0) {
       _.forEach(cart, function (item) {
-        total += _.toInteger(item.QTY);
+        total += 1;
         console.log(total);
       });
     }

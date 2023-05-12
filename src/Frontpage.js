@@ -156,7 +156,7 @@ class Frontpage extends React.Component {
                 marginLeft: "6%"
               }}
             >
-              Choose and shop from a store near you
+              Choose and shop from a store near you 
             </span>
           </div>
 
