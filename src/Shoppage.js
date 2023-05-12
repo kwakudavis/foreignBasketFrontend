@@ -233,7 +233,7 @@ class Shoppage extends React.Component {
         {this.displayBanner()}
 
         {this.displaySearchBar()}
-        <div className="categories">
+        <div className="categories" style={{display:"none"}}>
           <form className="ui teal button">
             <label>
               <select

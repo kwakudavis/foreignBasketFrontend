@@ -21,26 +21,44 @@ class Frontpage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchStores();
-    this.props.fetchProducts();
-    this.props.fetchStoresInventory();
-  }
 
-  renderLoadingSign() {
-    if (!this.props.stores) {
+    
+    Promise.all([
+      this.props.fetchStores(),
+      this.props.fetchProducts(),
+      this.props.fetchStoresInventory()
+    ])
+      .then(() => {
+        this.setState({ loader: true });
+      })
+      .catch((error) => {
+        // Handle any errors during the fetch operations
+        console.log("Error:", error);
+        this.setState({ loader: false });
+      });
+
+  }
+  
+
+
+  renderLoadingSign(loaderState) {
+    if (!loaderState) {
       return (
-        <div
-          className="ui segment"
-          style={{ backgroundColor: "#deedd6", borderColor: "deedd6" }}
-        >
+        <div style={{ backgroundColor: "transparent", position:"relative",  }}>
+        
           <div
-            className="ui active inverted dimmer"
-            style={{ backgroundColor: "#deedd6", borderColor: "deedd6" }}
+            className="ui active inverted dimmer green"
+            style={{ backgroundColor: "transparent", borderWidth: 0, marginTop: "-50px"}}
           >
-            <div className="ui loader"></div>
-            <span style={{ color: "#06451f" }}>Getting Stores</span>
+            <div className="ui loader" > </div>
+            
+            
           </div>
+
+         
+          
         </div>
+        
       );
     }
   }
@@ -161,7 +179,7 @@ class Frontpage extends React.Component {
           </div>
 
           <div className="renderStorelist">
-            {this.renderLoadingSign()}
+            {this.renderLoadingSign(this.state.loader)}
             {this.props.stores && this.renderStoreList()}
 
             <div

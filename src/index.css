@@ -222,6 +222,8 @@ code {
   justify-content: center;
   overflow-x: hidden;
   margin-top: 17px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 .searchBar input {
@@ -229,6 +231,7 @@ code {
   /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
   margin: 3px 3px 3px 3px;
   height: 30px;
+  
 }
 
 .categories {

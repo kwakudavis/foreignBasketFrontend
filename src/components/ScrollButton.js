@@ -40,7 +40,7 @@ class ScrollButton extends Component {
 
     const buttonStyle = {
         position: 'fixed',
-        bottom: '40px',
+        bottom: '30%',
         right: '20px',
         zIndex: '9999',
         backgroundColor: '#2c8a51',
