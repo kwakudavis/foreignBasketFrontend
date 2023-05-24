@@ -68,7 +68,12 @@ class Frontpage extends React.Component {
   renderStoreList() {
     return this.props.stores.map((stores) => {
       return (
-        <div className="frontstoreCard">
+        <div className="frontstoreCard" 
+      
+          
+        
+  
+        >
           <div
             style={{
               borderStyle: "solid",
@@ -78,7 +83,11 @@ class Frontpage extends React.Component {
               borderRadius: "10px",
               width: "70%",
               backgroundColor: "#ffffff",
-              boxShadow: "2px 2px rgb(0 0 0 / 20%)"
+              boxShadow: "2px 2px rgb(0 0 0 / 20%)",
+              backgroundImage: `url(${stores.store_front_background_image})`,
+              backgroundSize: '30% auto',
+              backgroundPosition:'top right',
+              backgroundRepeat: 'no-repeat'
             }}
           >
             <Link
@@ -167,14 +176,14 @@ class Frontpage extends React.Component {
             <span
               style={{
                 fontFamily: "Lato",
-                fontWeight: "500",
+                fontWeight: "700",
                 color: "#06451f",
                 fontSize: "19px",
                 lineHeight: "35px",
                 marginLeft: "6%"
               }}
             >
-              Choose and shop from a store near you 
+              Choose and shop from one of our supermarkets near you.
             </span>
           </div>
 

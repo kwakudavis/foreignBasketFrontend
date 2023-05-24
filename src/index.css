@@ -610,4 +610,9 @@ code {
   .shoppageheaderDiv {
     margin-top: 35px;
   }
+
+
+  .frontstoreCard > div{
+    background-position: center right !important;
+  }
 }
