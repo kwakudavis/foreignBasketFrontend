@@ -97,8 +97,17 @@ class CheckOutForm extends React.Component {
   }
 
   
-  //Define the toast used to announce confirmation of order.
+  //Define the toast used to display confirmation of order.
   notify = () => toast('Thank you for ordering from Foreign Basket, we will get in touch once we start picking up your order. You should receive an order confirmation email from us shortly',{duration: 10000, position: "top-center", icon: '👏' });
+
+  
+//Define the toast used to display invalid mobile.
+  notifyInvalidMobile = () => toast('Kinldy enter a valid mobile number',{position: "top-center" });
+
+//Define the toast used to display invalid Email.
+  notifyInvalidEmail = () => toast('Kinldy enter a email address',{position: "top-center" });
+
+
 
 
   submitOrder = async (e, state) => {
@@ -124,10 +133,26 @@ class CheckOutForm extends React.Component {
     }
 
     //////If no Address && mobile number has been inserted, raise an alert.
-    if (!(state.address && state.mobile)) {
-      alert("kindly enter a mobile number and address");
+    // Regular expression for email validation
+    const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Regular expression for mobile validation (10 digit US format)
+    const mobileRegEx = /^(?:\+356|00356)?[0-9]{8}$/;
+
+
+    // Validate email
+    if (!emailRegEx.test(state.email)) {
+      this.notifyInvalidEmail();
       return;
-    } else {
+    }
+
+    // Validate mobile
+    else if (!mobileRegEx.test(state.mobile)) {
+      this.notifyInvalidMobile();
+      return;
+    }
+    
+    else {
       ////Submit order
       //this.setState({ checkedOutCart: this.props.cart });
 
