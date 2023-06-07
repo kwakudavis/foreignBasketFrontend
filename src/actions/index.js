@@ -124,10 +124,14 @@ export const updateUserDetailsInStore = (userDetails, dispatch, getState) => {
   });
 };
 
-export const setCartModalState = (dispatch, getState) => {
-  return _.memoize(async (dispatch, getState) => {
-    await dispatch({ type: "ALTERNATE_STATE" });
-  });
+//export const setCartModalState = (dispatch, getState) => {
+ // return _.memoize(async (dispatch, getState) => {
+ //   await dispatch({ type: "ALTERNATE_STATE" });
+  //});
+//};
+
+export const setCartModalState = () => async (dispatch) => {
+  await dispatch({ type: "ALTERNATE_STATE" });
 };
 
 ///////// Submits order form to backend server

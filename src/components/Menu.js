@@ -122,9 +122,6 @@ class Menu extends React.Component {
                 fontFamily: "Cormorant",
                 fontWeight: "900",
                 backgroundColor: "#ffffff",
-
-                //  position: "absolute",
-                //   margin: "45px 180px",
                 padding: "11px",
                 height: "40px",
                 borderColor: "#06451f",

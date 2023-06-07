@@ -65,6 +65,8 @@ class Frontpage extends React.Component {
   
   
 
+
+
   renderStoreList() {
     return this.props.stores.map((stores) => {
       return (
@@ -90,14 +92,16 @@ class Frontpage extends React.Component {
               backgroundRepeat: 'no-repeat'
             }}
           >
+          
+          
             <Link
               to={{
-                pathname: "/shop",
-                state: {
+                pathname: "/shop"        
+                ,state: {
                   store_name: stores.name,
                   store_id: stores.id,
                   store_address: stores.address,
-                  store_inventory_id: stores.inventory_id
+                 store_inventory_id: stores.inventory_id
                 }
               }}
               className="item"

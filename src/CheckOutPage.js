@@ -100,6 +100,7 @@ class CheckOutPage extends React.Component {
   componentDidMount() {
     //////Check if user is logged in or not, and update global login state appropriately
     onAuthStateChanged(auth, this.triggeredOnChange);
+    
   }
 
   isCartEmpty(cart) {
@@ -118,6 +119,8 @@ class CheckOutPage extends React.Component {
   render() {
     return (
       <div>
+
+        
         {showModal(
           this.props.cartModalActive,
           this.props.setCartModalState,

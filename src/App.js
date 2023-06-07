@@ -31,6 +31,7 @@ class App extends React.Component {
 
         <BrowserRouter>
           <Menu />
+          <div className="bodySection">
 
           <Route path="/" exact component={Frontpage} />
 
@@ -46,6 +47,7 @@ class App extends React.Component {
           <Route path="/support" exact component={Supportpage} />
 
           <Route path="/terms" exact component={TermsPage} />
+          </div>
           <Love />
         </BrowserRouter>
       </div>

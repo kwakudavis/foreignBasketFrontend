@@ -14,16 +14,20 @@ class DisplayProductResults extends React.Component {
 
   renderProduct() {
     return this.props.productResults.map((product) => {
+      
       return (
         <div className="productCard">
           <Product product={product} />
+          
         </div>
+        
       );
     });
   }
 
   render() {
     return <div className="products">{this.renderProduct()}</div>;
+
   }
 }
 

@@ -6,6 +6,11 @@ export const showModal = function (
   updateModalState,
   cartItems
 ) {
+
+
+
+
+  
   if (currentModalState) {
     return (
       <div>

@@ -1,4 +1,4 @@
-export default (state = ["plantain"], action) => {
+export default (state = [""], action) => {
   switch (action.type) {
     case "FETCH_PRODUCTS":
       return action.payload;

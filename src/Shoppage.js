@@ -89,6 +89,18 @@ class Shoppage extends React.Component {
     }
   }
 
+ /**  displayBanner() {
+    return (
+      <div className="shoppageheaderDiv">
+        <Shoppageheader
+          store_name={this.store_name}
+          store_address={this.store_address}
+        />
+      </div>
+    );
+  }**/
+
+
   displayBanner() {
     return (
       <div className="shoppageheaderDiv">
@@ -99,6 +111,9 @@ class Shoppage extends React.Component {
       </div>
     );
   }
+
+
+
 
   displaySearchBar() {
     return (
