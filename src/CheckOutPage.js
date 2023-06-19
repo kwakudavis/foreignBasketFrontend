@@ -59,7 +59,6 @@ class CheckOutPage extends React.Component {
     else {
       this.props.signOut();
       this.setState({ user: null });
-      // console.log(this.props.loginState);
     }
   };
 
@@ -88,7 +87,7 @@ class CheckOutPage extends React.Component {
                     // var user = result.user;
                   });
               } catch (err) {
-                console.log(err);
+                
               }
             }}
           />{" "}
@@ -111,7 +110,7 @@ class CheckOutPage extends React.Component {
 
   submitOrder() {
     /////Display Order Submitted
-    console.log("Order submitted succesfully");
+  
 
     ////Redirect to shop page
   }

@@ -16,7 +16,7 @@ class Product extends React.Component {
   }
 
   componentDidMount() {
-    console.log("we refreshed");
+    
   }
 
   /////// Handles addition of product to cart
@@ -38,6 +38,8 @@ class Product extends React.Component {
     this.setState({ QTY: this.numberInCart(product.productId) });
   };
 
+  
+
   ////////Counts the number of a particular product in cart
   numberInCart(productId) {
     //////Find product in cart where productId matches product's id in cart,
@@ -54,13 +56,19 @@ class Product extends React.Component {
       return 0;
     }
   }
-
+  
+ 
   render() {
     return (
-      <div className="ui card">
-        <div className="content">
+      <div className="ui card"  >
+        <div className="content" >
           <div className="productQuantity">
             <span> {this.state.QTY}</span>
+          </div>
+          <div>
+            <span className="productInStock">
+              {this.props.product.productInStock ? "" : "Out of Stock"}
+            </span>
           </div>
           <div className="productImageDiv">
             <img
@@ -78,18 +86,28 @@ class Product extends React.Component {
             {"€"}
             {parseFloat(this.props.product.productPrice).toFixed(2)}{" "}
           </div>
-          <div className="addorRemoveProductButton">
-            <i
-              className="plus circle icon"
+          <div className="addorRemoveProductButton" >
+            <button
+             
+              disabled={!this.props.product.productInStock}
+              className="ui mini orange circular button"
               onClick={(e) => this.handleOnClickAddItem(this.props.product, e)}
-            ></i>
-            |
+            ><i className="white plus icon"></i></button>
+            
+            <button
+            disabled={!this.props.product.productInStock}
+            className="ui mini black circular button"
+             onClick={(e) =>
+              this.handleOnclickRemoveItem(this.props.product, e)
+            }
+            >
             <i
-              className="minus circle icon"
-              onClick={(e) =>
-                this.handleOnclickRemoveItem(this.props.product, e)
-              }
+              
+              className="minus  icon"
+             
+
             ></i>
+            </button>
           </div>
         </div>
       </div>

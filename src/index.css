@@ -340,6 +340,11 @@ code {
   text-align: center;
   border-radius: 100%;
 }
+
+
+.productInStock {
+  float: right;
+}
 .productName {
   position: absolute;
   font-size: 15px;

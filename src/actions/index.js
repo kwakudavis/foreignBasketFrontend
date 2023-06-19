@@ -7,7 +7,7 @@ import { calculateOrderTotal } from "../helperFunctions/calculateOrderTotal";
 export const fetchStores = (dispatch, getState) =>
   _.memoize(async (dispatch, getState) => {
     //Fetch list of stores.
-    console.log("About to fetch stores");
+    
     const response = await jsonplaceholder.get("/store/all");
 
     await dispatch({ type: "FETCH_STORES", payload: response.data });
@@ -17,7 +17,7 @@ export const fetchProducts = (dispatch, getState) =>
   _.memoize(async (dispatch, getState) => {
     //Test fetching of stores
     const response = await jsonplaceholder.get("/product/all");
-    console.log(response.data);
+   
 
     await dispatch({ type: "FETCH_PRODUCTS", payload: response.data });
   });
@@ -37,8 +37,7 @@ export const fetchStoresInventory = (store_id, dispatch, getState) =>
     ////Fetch all inventory
     await dispatch(fetchInventories());
 
-    /////////Testing fetchinig of store's invetory
-    console.log("About to fetch stores' inventoryfor store with ID" + store_id);
+    
 
     //////Update store's
   });
@@ -60,7 +59,7 @@ export const deleteFromCart = (selectedProduct, dispatch, getState) => {
 
   return _.memoize(async (dispatch, getState) => {
     //////dispatch DELETE_FROM_CART action with added item as the payload
-    console.log(selectedProduct);
+    
     await dispatch({ type: "DELETE_FROM_CART", payload: product });
   });
 };
@@ -137,7 +136,7 @@ export const setCartModalState = () => async (dispatch) => {
 ///////// Submits order form to backend server
 export const submitOrderForm = (orderDetails, dispatch, getState) => {
   ////Get Cart, Adress and Mobile Number and Submit to Server
-  console.log("submitting order form", orderDetails);
+  
 
   return _.memoize(async (dispatch, getState) => {
     try {
@@ -159,9 +158,9 @@ export const submitOrderForm = (orderDetails, dispatch, getState) => {
         orderDeliveryTime: orderDetails.preferredTime,
         orderEmail: orderDetails.email
       });
-      console.log(response);
+      
     } catch (err) {
-      console.log(err);
+      
     }
 
     await dispatch({ type: "SUBMIT_ORDER_FORM" });

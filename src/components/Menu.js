@@ -20,7 +20,7 @@ class Menu extends React.Component {
     if (cart.length > 0) {
       _.forEach(cart, function (item) {
         total += 1;
-        console.log(total);
+        
       });
     }
 

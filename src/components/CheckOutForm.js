@@ -17,10 +17,8 @@ class CheckOutForm extends React.Component {
     ////Time Options
     const weekdayOptions = ["18:30 - 20:00"];
     const weekendOptions = [
-      "11:00 - 13:00",
-      "13:00 - 15:00",
       "15:00 - 17:00",
-      "17:00 - 19:00"
+      "18:30 - 20:00"
     ];
 
   
@@ -41,7 +39,7 @@ class CheckOutForm extends React.Component {
       preferredTimeOptions = weekdayOptions;
     }
 
-    console.log(props.loginState);
+    
 
     this.state = {
       address: props.loginState.address,
@@ -82,7 +80,7 @@ class CheckOutForm extends React.Component {
 
       this.setState({ preferredTime: value });
     } catch (err) {
-      console.log(err);
+      
     }
   }
 
@@ -92,7 +90,7 @@ class CheckOutForm extends React.Component {
 
       this.setState({ address: value });
     } catch (err) {
-      console.log(err);
+      
     }
   }
 
@@ -169,7 +167,7 @@ class CheckOutForm extends React.Component {
 
       this.setState({ mobile: value });
     } catch (err) {
-      console.log(err);
+     
     }
   }
 
@@ -179,7 +177,7 @@ class CheckOutForm extends React.Component {
 
       this.setState({ email: value });
     } catch (err) {
-      console.log(err);
+      
     }
   }
 

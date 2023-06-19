@@ -52,7 +52,6 @@ class Accountpage extends React.Component {
     else {
       this.props.signOut();
       this.setState({ user: null });
-      // console.log(this.props.loginState);
     }
   };
 
@@ -61,25 +60,25 @@ class Accountpage extends React.Component {
     //e.preventDefault();
     try {
       formData.uid = this.state.user.uid;
-      console.log("updating details", formData);
+      
       if (!formData.mobile) {
         formData.mobile = null;
       }
       if (!formData.address) {
         formData.address = null;
       }
-      //console.log("form data:", this.props);
+      
       this.props.updateUserDetailsInStore(formData);
       alert("Successfully updated");
     } catch (err) {
-      console.log(err);
+      
     }
   };
 
   renderOutputAccountPageBasedOnState = (loginState) => {
     /////If user is logged in, render account details and sign out button
     if (loginState) {
-      // console.log("rendered sign out/render");
+      
 
       return (
         <div>
@@ -88,7 +87,7 @@ class Accountpage extends React.Component {
               label="Sign Out"
               type="dark"
               onClick={() => {
-                //console.log(firebaseAuthSource.signOut(auth));
+                
                 firebaseAuthSource.signOut(auth);
               }}
             />
@@ -130,7 +129,7 @@ class Accountpage extends React.Component {
 
       //////If user is logged out, render sign in Button
     } else {
-      console.log("rendre sign in button");
+      
       return (
         <div>
           <div className="googleSignInandoutbuttonsDiv ">
@@ -144,7 +143,7 @@ class Accountpage extends React.Component {
                       // var user = result.user;
                     });
                 } catch (err) {
-                  console.log(err);
+                  
                 }
               }}
             />
@@ -154,7 +153,6 @@ class Accountpage extends React.Component {
     }
   };
   componentDidMount() {
-    console.log(auth.authStateSubscription.auth.authStateSubscription.observer);
     onAuthStateChanged(auth, this.triggeredOnChange);
   }
 

@@ -75,7 +75,7 @@ class Shoppage extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log("search term has been submitted", this.state.searchedTerm);
+    
     event.preventDefault();
   }
 
@@ -85,7 +85,7 @@ class Shoppage extends React.Component {
 
       this.setState({ selectedCategory: value });
     } catch (err) {
-      console.log(err);
+     
     }
   }
 
@@ -165,12 +165,7 @@ class Shoppage extends React.Component {
   //// Function to get the inventory of the store
   store_inventory = () => {
     return this.props.inventories.map((inventory) => {
-      /**   if (inventory.id === this.store_inventory_id) {
-        //this.setState({ store_inventory: inventory });
-        //  console.log(inventory.inventory[0].productId);
-        // console.log(inventory.inventory);
-        return inventory.inventory;
-      }*/
+  
 
       return null;
     });
@@ -204,16 +199,27 @@ class Shoppage extends React.Component {
         return o.id === value.productId;
       });
 
+      //Check if product details exist
       if (productdetails !== undefined) {
+
+        //Get only prodcuts that have a quantity greater than 0 in the store's inventory to display
+        if (value.productQty === 0) {
+         //Set product stock state to false
+          var stockState = false;
+        }else{
+          stockState = true;
+        }
         ///// Populate results array with store's products/product details.
         results = _.concat(results, {
           productId: value.productId,
           productName: _.lowerCase(productdetails.name),
           productPrice: value.productPrice,
           productImgUrl: productdetails.imageurl,
-          productCategory: _.lowerCase(productdetails.category)
+          productCategory: _.lowerCase(productdetails.category),
+          productInStock: stockState
         });
-      }
+      
+    }
     });
 
     ///Filter products by category, if a category has been set
@@ -248,7 +254,7 @@ class Shoppage extends React.Component {
         {this.displayBanner()}
 
         {this.displaySearchBar()}
-        <div className="categories" style={{display:"none"}}>
+        <div className="categories" style={{}}>
           <form className="ui teal button">
             <label>
               <select

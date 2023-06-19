@@ -4,8 +4,8 @@ export default (state = [], action) => {
 
   switch (action.type) {
     case "SIGN_IN":
-      console.log("signed in info");
-      console.log(action.payload);
+      
+     
       updatedState = state;
       try {
         updatedState.mobile = action.payload.mobile;

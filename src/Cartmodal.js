@@ -6,20 +6,6 @@ import "./index.css";
 import { DisplayCartItems } from "./components/DisplayCartItems";
 import { OrderTotal } from "./components/OrderTotal";
 
-/** 
-const displayCartItems = function (items) {
- 
-
-  console.log(items);
-
-  return _.forEach(items, function (o) {
-    console.log(o);
-    return <div>o.productId</div>;
-  });
-  // _.forEach(items, function (value) {
-  //   return <div>value.productId</div>;
-  // });
-};*/
 
 export const CartModal = (props) => {
   return ReactDOM.createPortal(

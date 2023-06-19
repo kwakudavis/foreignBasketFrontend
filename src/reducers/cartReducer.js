@@ -24,7 +24,7 @@ export default (state = [], action) => {
         });
       }
 
-      console.log(currState);
+      
       return currState;
 
     case "REMOVE_FROM_CART":

@@ -33,7 +33,7 @@ class Frontpage extends React.Component {
       })
       .catch((error) => {
         // Handle any errors during the fetch operations
-        console.log("Error:", error);
+       
         this.setState({ loader: false });
       });
 
@@ -167,8 +167,7 @@ class Frontpage extends React.Component {
         <div className="frontPageBottomRow">
           <div className="buyfromLocalShopsPhraseDiv">
             <span className="buyfromLocalShopsPhrase">
-              Buy Afro, Asian, Carribean and Middle Eastern groceries from local
-              shops you already know - same day delivery .
+            <i class="shipping fast icon large"></i>Currently available only in mainland Malta.
             </span>
           </div>
           <div
